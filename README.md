@@ -101,4 +101,4 @@ Many thanks the following projects's contributions to **MFMamba**.
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=YanWang-WHPU/MFMamba&type=date&legend=top-left)](https://www.star-history.com/#YanWang-WHPU/MFMamba&type=date&legend=top-left)
+[![Star History Chart](https://api.star-history.com/svg?repos=YanWang-WHPU/WgANet&type=date&legend=top-left)](https://www.star-history.com/#YanWang-WHPU/WgANet&type=date&legend=top-left)
