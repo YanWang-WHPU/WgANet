@@ -534,7 +534,6 @@ class GlobalLocalAttention(nn.Module):
 
         B, C, H, W = x.size()
 
-        # 需要 pad 的量（保证对整除情况返回 0）
         pad_w = (ps - W % ps) % ps
         pad_h = (ps - H % ps) % ps
 
@@ -549,14 +548,6 @@ class GlobalLocalAttention(nn.Module):
 
         return x
 
-
-    # def pad(self, x, ps):
-    #     _, _, H, W = x.size()
-    #     if W % ps != 0:
-    #         x = F.pad(x, (0, ps - W % ps), mode='reflect')
-    #     if H % ps != 0:
-    #         x = F.pad(x, (0, 0, 0, ps - H % ps), mode='reflect')
-    #     return x
 
     def pad_out(self, x):
         x = F.pad(x, pad=(0, 1, 0, 1), mode='reflect')
@@ -933,7 +924,7 @@ class WgANet(nn.Module):
 
 def load_pretrained_ckpt(
     model, 
-    ckpt_path="/private/workspace/WAFAAG3/vmamba_tiny_e292.pth"
+    ckpt_path="/private/workspace/WAFAAG3/pretrain/vmamba_tiny_e292.pth"
 ):
 
     print(f"Loading weights from: {ckpt_path}")
