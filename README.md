@@ -11,8 +11,8 @@ Our experiments were implemented with the PyTorch framework done on a single NVI
 All datasets including ISPRS Potsdam and ISPRS Vaihingen can be downloaded [here](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)  
 | Dataset | 表头2|
 | ---------- | -----------|
-| ISPRS Vaihingen   | downloaded(https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)   |
-| ISPRS Potsdam   | downloaded(https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)   |
+| ISPRS Vaihingen   | [downloaded](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)   |
+| ISPRS Potsdam   | [downloaded](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)   |
 ## Pretrained Weights of Backbones 
 
 ## Folder Structure
