@@ -29,20 +29,8 @@ WEIGHTS = torch.ones(N_CLASSES) # Weights for class balancing
 CACHE = True # Store the dataset in-memory
 # CACHE = False
 
-# ISPRS color palette
-# Let's define the standard ISPRS color palette
-# palette = {0 : (255, 255, 255), # Impervious surfaces (white)
-#            1 : (0, 0, 255),     # Buildings (blue)
-#            2 : (0, 255, 255),   # Low vegetation (cyan)
-#            3 : (0, 255, 0),     # Trees (green)
-#            4 : (255, 255, 0),   # Cars (yellow)
-#            5 : (255, 0, 0),     # Clutter (red)
-#            6 : (0, 0, 0)}       # Undefined (black)
-
-# invert_palette = {v: k for k, v in palette.items()}
-
 # MODEL = 'UNetformer'
-MODEL = 'WgAnet'
+MODEL = 'WgANet'
 # MODEL = 'RS3Mamba'
 # MODEL = 'UNetMamba'
 # MODEL = 'TransUNet'
