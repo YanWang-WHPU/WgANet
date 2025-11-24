@@ -9,7 +9,7 @@ Our experiments were implemented with the PyTorch framework done on a single NVI
 
 # Dataset 
 All datasets including ISPRS Potsdam and ISPRS Vaihingen can be downloaded [here](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)  
-| Dataset | 表头2|
+| Dataset | Link|
 | ---------- | -----------|
 | ISPRS Vaihingen   | [downloaded](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)   |
 | ISPRS Potsdam   | [downloaded](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)   |
