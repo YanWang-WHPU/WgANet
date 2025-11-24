@@ -3,7 +3,7 @@ WgANet: A Wavelet-guided Attention Network for Remote Sensing Image Semantic Seg
 
 ----
 # Framework
-.<div align=center><img src="URL" width="300" height="450" /></div>
+.<div align=center><img src="https://github.com/YanWang-WHPU/WgANet/blob/main/figure_model.png" width="300" height="450" /></div>
 # environment
 Our experiments were implemented with the PyTorch framework done on a single NVIDIA A40 GPU equipped with 48GB RAM.  
 
