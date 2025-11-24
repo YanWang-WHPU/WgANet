@@ -2,6 +2,8 @@ WgANet: A Wavelet-guided Attention Network for Remote Sensing Image Semantic Seg
 ===
 # Framework
 ![WgANet_model](https://github.com/YanWang-WHPU/WgANet/blob/main/figure_model.png "WgANet")
+> Overall architecture of WgANet, comprising three parallel encoding branches: a spatial Mamba branch, a spatial convolutional branch, and a frequency
+ band branch, along with a decoder.
 # Environment
 Our experiments were implemented with the PyTorch framework done on a single NVIDIA A40 GPU equipped with 48GB RAM.  
 
