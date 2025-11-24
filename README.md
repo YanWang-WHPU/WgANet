@@ -1,4 +1,4 @@
-WgANet: A Wavelet-guided Attention Network for Remote Sensing Image Semantic Segmentation
+<p align="center"> WgANet: A Wavelet-guided Attention Network for Remote Sensing Image Semantic Segmentation </p> 
 ===
 
 ----
