@@ -21,7 +21,7 @@ from torch.autograd import Variable
 from IPython.display import clear_output
 from model.UNetFormer import UNetFormer
 from model.RS3Mamba import RS3Mamba, load_pretrained_ckpt
-from model.RS3Mamba_copy import RS3Mamba as WgAnet
+from model.WgANet import WgANet, load_pretrained_ckpt
 from model.UNetMamba import UNetMamba
 from model.CMTFNet import CMTFNet
 from model.TransUNet_model.vit_seg_modeling import VisionTransformer as ViT_seg
@@ -37,8 +37,8 @@ except ImportError:
 
 if MODEL == 'UNetformer':
     net = UNetFormer(num_classes=N_CLASSES).cuda()
-elif MODEL == 'WgAnet':
-    net = WgAnet(num_classes=N_CLASSES).cuda()
+elif MODEL == 'WgANet':
+    net = WgANet(num_classes=N_CLASSES).cuda()
     net = load_pretrained_ckpt(net)
 elif MODEL == 'RS3Mamba':
     net = RS3Mamba(num_classes=N_CLASSES).cuda()
@@ -171,7 +171,7 @@ def train(net, optimizer, epochs, scheduler=None, weights=WEIGHTS, save_epoch=1)
     weights = weights.cuda()
 
     iter_ = 0
-    MIoU_best = 0.75
+    MIoU_best = 0.80
     for e in range(1, epochs + 1):
         if scheduler is not None:
             scheduler.step()
