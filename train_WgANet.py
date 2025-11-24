@@ -83,41 +83,6 @@ logging.basicConfig(filename=save_path+'log.log',format='[%(asctime)s-%(filename
 logging.info("Config")
 logging.info('epoch:{};lr:{};batchsize:{};trainsize:{};save_path:{}'.format(opt.epoch,base_lr,BATCH_SIZE,WINDOW_SIZE,save_path))
 
-dummy_input_rgb = torch.randn(1, 3, 256, 256).cuda()
-
-# ========== 参数量 ==========
-params = sum(p.numel() for p in net.parameters() if p.requires_grad)
-print(f"Total Parameters: {params / 1e6:.2f} M")
-
-# ========== FLOPs ==========
-net.eval()
-with torch.no_grad():
-    flops = FlopCountAnalysis(net, dummy_input_rgb)
-    # print(parameter_count_table(model))
-    print(f"Total FLOPs: {flops.total() / 1e9:.2f} GFLOPs")
-
-# ========== Memory footprint (估算，训练期) ==========
-total_params = sum(p.numel() for p in net.parameters())
-param_memory = total_params * 4 / (1024 ** 2)  # 单精度 4B
-
-with torch.no_grad():
-    outputs = net(dummy_input_rgb)
-    if isinstance(outputs, (tuple, list)):
-        outputs = outputs[0]
-    activation_memory = outputs.numel() * 4 / (1024 ** 2)
-
-# optimizer 通常 2~4 倍参数量
-optimizer_memory = total_params * 12 / (1024 ** 2)
-
-total_memory = param_memory + activation_memory + optimizer_memory
-print(f"Estimated Memory Footprint: {total_memory:.2f} MB (params+activations+optimizer)")
-
-# 写入日志文件
-logging.info(f"Model Summary:")
-logging.info(f"  Total Parameters: {params / 1e6:.2f} M")
-logging.info(f"  Total FLOPs: {flops.total() / 1e9:.2f} GFLOPs")
-logging.info(f"  Estimated Memory Footprint: {total_memory:.2f} MB")
-
 # Load the datasets
 print("training : ", str(len(train_ids)) + ", testing : ", str(len(test_ids)) + ", Stride_Size : ", str(Stride_Size), ", BATCH_SIZE : ", str(BATCH_SIZE))
 train_set = ISPRS_dataset(train_ids, cache=CACHE)
