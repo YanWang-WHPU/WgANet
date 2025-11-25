@@ -58,6 +58,7 @@ conda activate WgANet
 ### 2. Install cuda=11.8
 ```
 wget https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_520.61.05_linux.run
+pip install cuda_11.8.0_520.61.05_linux.run
 ```
 ### 3. Install torch=2.0.0
 ```
@@ -78,12 +79,12 @@ Because installing with pip can be problematic, we recommend downloading and ins
 pip install causal-conv1d
 ```
 Because installing with pip can be problematic, we recommend downloading and installing it [here](https://github.com/Dao-AILab/causal-conv1d/releases)
-# Train 
-### Modify the parameters and addresses
+# Training 
 1. Modify the address of data in utils_WgANet.py, batch_size, training mode =train, training model =WgANet.  
- 
-2. Modify the address of results in train_WgANet.py
-### train
+
+2. Modify the address for saving the results in train_WgANet.py
+  
+4. train
 ```
 python train_WgANet.py
 ``` 
@@ -91,7 +92,7 @@ python train_WgANet.py
 ### Modify the parameters and addresses
 1. Modify the address of results in train_WgANet.py to be the address of the best trained model  
 2. Modify the training mode =test in utils_WgANet.py
-### test
+3. test
 ```
 python train_WgANet.py
 ```
