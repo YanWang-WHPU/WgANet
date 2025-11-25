@@ -16,7 +16,7 @@ Our experiments were implemented with the PyTorch framework done on a single NVI
 | LoveDA   | [download](https://codalab.lisn.upsaclay.fr/competitions/421)   |
 
 ## Pretrained Weights of Backbones 
-
+[vmamba_tiny_e292.pth](https://github.com/YanWang-WHPU/WgANet/blob/main/pretrain/vmamba_tiny_e292.pth)
 ## Folder Structure
 Prepare the following folders to organize this repo:
 ```
@@ -50,16 +50,16 @@ WgANet
 │   │   ├── train_val (Merge Train and Val)
 ```
 # Install
-### Open the folder WgANet using Linux Terminal and create python environment:
+### 1. Open the folder WgANet using Linux Terminal and create python environment:
 ```
 conda create -n WgANet python=3.8 -y
 conda activate WgANet
 ```
-### Install cuda=11.8
+### 2. Install cuda=11.8
 ```
 wget https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_520.61.05_linux.run
 ```
-### Install torch=2.0.0
+### 3. Install torch=2.0.0
 ```
 conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 pytorch-cuda=11.8 -c pytorch -c nvidia
 ```
@@ -67,13 +67,13 @@ or(pip):
 ```
 pip install torch==2.0.0 torchvision==0.15.1 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cu118 
 ```
-### Install Mamba
-#### Install mamba_ssm
+### 4. Install Mamba
+#### 4.1 Install mamba_ssm
 ```
 pip install mamba-ssm
 ```
 Because installing with pip can be problematic, we recommend downloading and installing it [here](https://github.com/state-spaces/mamba/releases)
-#### Install causal-conv1d
+#### 4.2 Install causal-conv1d
 ```
 pip install causal-conv1d
 ```
