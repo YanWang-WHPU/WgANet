@@ -96,7 +96,7 @@ python train_WgANet.py
 ```
 python train_WgANet.py
 ```
-
+# Reproduction Results on the ISPRS Vaihingen Dataset
 | Method           | Imp. | Bui. | Low. | Tre. | Car. | OA (%) | mF1 (%) | mIoU (%) |
 |------------------|------|------|------|------|------|--------|---------|----------|
 | ABCNet           | 85.32 | 92.24 | 66.49 | 82.45 | 74.84 | 90.79 | 88.78 | 80.27 |
@@ -112,7 +112,13 @@ python train_WgANet.py
 | DECS-Net         | 86.14 | **93.92** | 66.46 | 83.23 | 79.15 | 91.34 | 89.70 | 81.79 |
 | MIFNet           | 86.04 | 93.75 | 67.72 | 83.57 | 82.44 | 91.43 | 90.29 | 82.71 |
 | WgANet (ours)    | **86.70** | 93.64 | **67.96** | **83.60** | **83.29** | **91.45** | **90.50** | **83.04** |
-
+# Visual Results on the ISPRS Vaihingen Dataset
+![figure_vaihingen](https://github.com/YanWang-WHPU/WgANet/blob/main/figure_vaihingen.png "results")
+> Qualitative comparisons on the ISPRS Vaihingen dataset. For each method, the left panel shows the original prediction map, and the right panel
+ shows a cropped region from the left side with a size of 256 × 256. Red boxes highlight challenging regions: the lower box shows shadowed vehicles and
+ building edges, while the upper box shows tree and low-vegetation boundaries. (a) original NIRRG image, (b) ground truth, segmentation results produced
+ by (c) ABCNet, (d) UNetMamba, (e) TransUNet, (f) UNetFormer, (g) MAResU-Net, (h) CMTFNet, (i) RS3Mamba, (j) SFFNet, (k) PHA-UNet, (l) MCAFT,
+ (m) DECS-Net, (n) MIFNet, and (o) our proposed WgANet.
 # Citations
 If these codes are helpful for your study, please cite:
 ```
@@ -131,12 +137,12 @@ DOI = {10.3390/s24227266}
 }
 ``` 
 # Acknowledgement
-Many thanks the following projects's contributions to **MFMamba**.  
+Many thanks the following projects's contributions to **WgANet**.  
+[MFMamba](https://github.com/YanWang-WHPU/MFMamba) 
+[Wave-Mamba](https://github.com/AlexZou14/Wave-Mamba)
 [RS3Mamba](https://github.com/sstary/SSRS)  
-[UNetFormer](https://github.com/WangLibo1995/GeoSeg)  
-[PKINet](https://github.com/NUST-Machine-Intelligence-Laboratory/PKINet)  
-[SwiftFormer](https://github.com/Amshaker/SwiftFormer)  
-
+[UNetFormer](https://github.com/WangLibo1995/GeoSeg)   
+[ConTriNet_RGBT-SOD](https://github.com/CSer-Tang-hao/ConTriNet_RGBT-SOD)  
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=YanWang-WHPU/WgANet&type=date&legend=top-left)](https://www.star-history.com/#YanWang-WHPU/WgANet&type=date&legend=top-left)
