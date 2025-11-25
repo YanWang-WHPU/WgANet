@@ -138,9 +138,9 @@ DOI = {10.3390/s24227266}
 ``` 
 # Acknowledgement
 Many thanks the following projects's contributions to **WgANet**.  
-[MFMamba](https://github.com/YanWang-WHPU/MFMamba) 
-[Wave-Mamba](https://github.com/AlexZou14/Wave-Mamba)
-[RS3Mamba](https://github.com/sstary/SSRS)  
+[MFMamba](https://github.com/YanWang-WHPU/MFMamba)  
+[Wave-Mamba](https://github.com/AlexZou14/Wave-Mamba)  
+[RS3Mamba](https://github.com/sstary/SSRS)    
 [UNetFormer](https://github.com/WangLibo1995/GeoSeg)   
 [ConTriNet_RGBT-SOD](https://github.com/CSer-Tang-hao/ConTriNet_RGBT-SOD)  
 ## Star History
