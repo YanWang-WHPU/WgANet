@@ -8,11 +8,11 @@ WgANet: A Wavelet-guided Attention Network for Remote Sensing Image Semantic Seg
 Our experiments were implemented with the PyTorch framework done on a single NVIDIA A40 GPU equipped with 48GB RAM.  
 
 # Dataset 
-All datasets including ISPRS Potsdam and ISPRS Vaihingen can be downloaded [here](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)  
-| Dataset | Link|
+ 
+| Supported Remote Sensing Datasets | Link|
 | ---------- | -----------|
-| ISPRS Vaihingen   | [download](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)   |
-| ISPRS Potsdam   | [download](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)   |
+| ISPRS Vaihingen   | [download](https://www.isprs.org/resources/datasets/benchmarks/UrbanSemLab/default.aspx)   |
+| ISPRS Potsdam   | [download](https://www.isprs.org/resources/datasets/benchmarks/UrbanSemLab/default.aspx)   |
 | LoveDA   | [download](https://codalab.lisn.upsaclay.fr/competitions/421)   |
 
 ## Pretrained Weights of Backbones 
