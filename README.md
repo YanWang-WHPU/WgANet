@@ -7,9 +7,9 @@ WgANet: A Wavelet-guided Attention Network for Remote Sensing Image Semantic Seg
 # Environment
 Our experiments were implemented with the PyTorch framework done on a single NVIDIA A40 GPU equipped with 48GB RAM.  
 
-# Dataset 
- 
-| Supported Remote Sensing Datasets | Link|
+# Datasets 
+ Supported Remote Sensing Datasets
+| Datasets | Link|
 | ---------- | -----------|
 | ISPRS Vaihingen   | [download](https://www.isprs.org/resources/datasets/benchmarks/UrbanSemLab/default.aspx)   |
 | ISPRS Potsdam   | [download](https://www.isprs.org/resources/datasets/benchmarks/UrbanSemLab/default.aspx)   |
@@ -18,6 +18,7 @@ Our experiments were implemented with the PyTorch framework done on a single NVI
 ## Pretrained Weights of Backbones 
 
 ## Folder Structure
+Prepare the following folders to organize this repo:
 ```
 WgANet
 ├── pretrain (pretrained weights of backbones)
@@ -32,6 +33,21 @@ WgANet
 │   │   ├── gts_eroded_for_participants (original)
 │   │   ├── gts_for_participants (original)
 │   ├── potsdam (the same with vaihingen)
+│   ├── LoveDA
+│   │   ├── Train
+│   │   │   ├── Urban
+│   │   │   │   ├── images_png (original images)
+│   │   │   │   ├── masks_png (original masks)
+│   │   │   │   ├── masks_png_convert (converted masks used for training)
+│   │   │   │   ├── masks_png_convert_rgb (original rgb format masks)
+│   │   │   ├── Rural
+│   │   │   │   ├── images_png 
+│   │   │   │   ├── masks_png 
+│   │   │   │   ├── masks_png_convert
+│   │   │   │   ├── masks_png_convert_rgb
+│   │   ├── Val (the same with Train)
+│   │   ├── Test
+│   │   ├── train_val (Merge Train and Val)
 ```
 # Install
 ### Open the folder WgANet using Linux Terminal and create python environment:
