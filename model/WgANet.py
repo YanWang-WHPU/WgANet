@@ -297,19 +297,86 @@ class DTB(nn.Module):
 
     def __init__(self, dim, num_heads, ffn_factor, bias, LayerNorm_type):
         super(DTB, self).__init__()
+        dimattn=64
+        self.norm1 = LayerNorm(dimattn, LayerNorm_type)
+        self.attn = Wide_Transformer(dimattn, num_heads, bias)
+        self.norm2 = LayerNorm(dim, LayerNorm_type)
+        self.ffn = FeedForward(dim, ffn_factor, bias)
+        self.conv1 = ConvBNReLU(dim,dimattn,1,1)
+        self.conv2 = ConvBNReLU(dimattn,dim,1,1)
 
+    def forward(self, x):
+        x1=self.conv1(x)
+        x = x + self.conv2(self.attn(self.norm1(x1)))
+        x = x + self.ffn(self.norm2(x))
+
+        return x
+        
+class DTB1(nn.Module):
+
+    def __init__(self, dim, num_heads, ffn_factor, bias, LayerNorm_type):
+        super(DTB1, self).__init__()
+        dimattn=64
         self.norm1 = LayerNorm(dim, LayerNorm_type)
         self.attn = Wide_Transformer(dim, num_heads, bias)
         self.norm2 = LayerNorm(dim, LayerNorm_type)
         self.ffn = FeedForward(dim, ffn_factor, bias)
 
     def forward(self, x):
-       
         x = x + self.attn(self.norm1(x))
         x = x + self.ffn(self.norm2(x))
 
         return x
+        
+ class FMS(nn.Module):
+    def __init__(self, in_ch, out_ch,num_heads=8, window_size=8):
+        super(FMS, self).__init__()
+        self.wt = DWTForward(J=1, mode='zero', wave='haar')
+        self.glb = GlBlock(dim=in_ch,outdim=in_ch,num_heads=num_heads, window_size=window_size)
+        self.localb=multilocalBlock(dim=in_ch,outdim=in_ch,num_heads=8, window_size=window_size)
+        self.conv_bn_relu = nn.Sequential(
+                                    nn.Conv2d(in_ch*3, in_ch, kernel_size=1, stride=1),
+                                    nn.BatchNorm2d(in_ch),
+                                    nn.ReLU(inplace=True),
+                                    )
+        self.outconv_bn_relu_L = nn.Sequential(
+            nn.Conv2d(in_ch, out_ch, kernel_size=1, stride=1),
+            nn.BatchNorm2d(out_ch),
+            nn.ReLU(inplace=True),
+        )
+        self.outconv_bn_relu_H = nn.Sequential(
+            nn.Conv2d(in_ch, out_ch, kernel_size=1, stride=1),
+            nn.BatchNorm2d(out_ch),
+            nn.ReLU(inplace=True),
+        )
+        self.outconv_bn_relu_glb = nn.Sequential(
+            nn.Conv2d(in_ch, out_ch, kernel_size=1, stride=1),
+            nn.BatchNorm2d(out_ch),
+            nn.ReLU(inplace=True),
+        )
+        self.outconv_bn_relu_local = nn.Sequential(
+            nn.Conv2d(in_ch, out_ch, kernel_size=1, stride=1),
+            nn.BatchNorm2d(out_ch),
+            nn.ReLU(inplace=True),
+        )
+    def forward(self, x,imagename=None):
 
+        yL, yH = self.wt(x)
+        y_HL = yH[0][:,:,0,::]
+        y_LH = yH[0][:,:,1,::]
+        y_HH = yH[0][:,:,2,::]
+
+        yH = torch.cat([y_HL, y_LH, y_HH], dim=1) # 对H V D 进行聚合为高频细节特征
+        yH = self.conv_bn_relu(yH)
+
+        yL = self.outconv_bn_relu_L(yL) 
+        yH = self.outconv_bn_relu_H(yH) 
+
+
+        glb = self.outconv_bn_relu_glb(self.glb(x)) # 全局特征
+        local = self.outconv_bn_relu_local(self.localb(x)) # 卷积提取的本地特征
+        return yL,yH,glb,local   
+        
 class MDAM(nn.Module):
     def __init__(self, out_dim,in_dim):
         super(MDAM, self).__init__()
